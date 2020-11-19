@@ -23,7 +23,7 @@ A NumberInput for the Max
 */
 
 import React, { Component } from 'react'
-import { List, TextField, ReferenceField, NumberField } from 'react-admin';
+import { List, TextField, ReferenceField, NumberField, Edit } from 'react-admin';
 
 export class GradesList extends Component {
 	render() {
@@ -51,7 +51,7 @@ export class GradesEdit extends Component {
 	render() {
 		return (
 			<Edit>
-				<TextField 
+				{/* <TextField 
 					label="ID"
 					source={this.props.id} />
 				<ReferenceField
@@ -63,7 +63,7 @@ export class GradesEdit extends Component {
 				</ReferenceField>
 				<Textfield type={this.props.type}/>
 				<Numberfield source={this.props.grade}/>
-				<Numberfield source={this.props.max}/>
+				<Numberfield source={this.props.max}/> */}
 			</Edit>
 		)
 	}
