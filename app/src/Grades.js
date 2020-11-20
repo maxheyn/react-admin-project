@@ -30,7 +30,7 @@ export const GradesList = (props) => {
 		<List {...props}>
 			<Datagrid>
 				<TextField source='id'/>
-				<ReferenceField source='student_id' reference={props.student_id} />
+				<ReferenceField source='student_id' reference='student_id' />
 				<TextInput source='type' />
 				<NumberField source='grade' />
 				<NumberField source='max' />
@@ -44,7 +44,7 @@ export const GradesEdit = (props) => {
 		<Edit title='Edit a Grade' {...props}>
 			<SimpleForm>
 				<TextInput source='student_id' />
-				<ReferenceField source='student_id' reference={props.student_id} />
+				<ReferenceField source='student_id' reference='student_id' />
 				<TextInput source='type' />
 				<NumberInput source='grade' />
 				<NumberInput source='max' />
