@@ -18,9 +18,14 @@ function App() {
     };
     return fetchUtils.fetchJson(url, options);
   }
-  const dataProvider = jsonServerProvider('/project5', httpClient);
+  const dataProvider = jsonServerProvider('http://3.90.38.43/project5', httpClient);
   return <Admin dataProvider={dataProvider} title="Project 6">
     <Resource name='grades'
+      list={GradesList}
+      create={GradesCreate}
+      edit={GradesEdit} 
+    />
+    <Resource name='students'
       list={GradesList}
       create={GradesCreate}
       edit={GradesEdit} 
