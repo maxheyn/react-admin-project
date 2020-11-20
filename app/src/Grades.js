@@ -25,26 +25,22 @@ A NumberInput for the Max
 import React, { Component } from 'react'
 import { List, TextField, ReferenceField, NumberField, Edit } from 'react-admin';
 
-export class GradesList extends Component {
-	render() {
-		return (
-			<List {...props} >
-				<TextField 
-					label="ID"
-					source='id' />
-				<ReferenceField
-					label="Student" 
-					source='id'
-					reference={this.props.student_id}
-				>
-					{this.props.student_id}
-				</ReferenceField>
-				<TextField type={this.props.type}/>
-				<NumberField source={this.props.grade}/>
-				<NumberField source={this.props.max}/>
-			</List>
-		)
-	}
+const GradesList = (props) => {
+	return <List {...props}>
+		<TextField 
+			label="ID"
+			source='id' />
+		<ReferenceField
+			label="Student" 
+			source='id'
+			reference={this.props.student_id}
+		>
+			{this.props.student_id}
+		</ReferenceField>
+		<TextField type={this.props.type}/>
+		<NumberField source={this.props.grade}/>
+		<NumberField source={this.props.max}/>
+	</List>
 }
 
 export class GradesEdit extends Component {
