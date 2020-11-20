@@ -22,7 +22,7 @@ function App() {
     };
     return fetchUtils.fetchJson(url, options);
   }
-  const dataProvider = jsonServerProvider('http://localhost:5000', httpClient);
+  const dataProvider = jsonServerProvider('http://3.90.38.43/project5/', httpClient);
   return (
     <Admin dataProvider={dataProvider} title="React Admin Dashboard 3750 Project 6">
       <Resource name='grades'
