@@ -22,57 +22,48 @@ A NumberInput for the Grade
 A NumberInput for the Max
 */
 
-import React, { Component } from 'react'
-import { List, TextField, ReferenceField, NumberField, Edit } from 'react-admin';
+import React from 'react'
+import { List, Datagrid, TextField, TextInput, ReferenceField, NumberField, NumberInput, Edit, Create, SimpleForm } from 'react-admin';
 
-const GradesList = (props) => {
-	return <List {...props}>
-		<TextField 
-			label="ID"
-			source='id' />
-		<ReferenceField
-			label="Student" 
-			source='id'
-			reference={this.props.student_id}
-		>
-			{this.props.student_id}
-		</ReferenceField>
-		<TextField type={this.props.type}/>
-		<NumberField source={this.props.grade}/>
-		<NumberField source={this.props.max}/>
-	</List>
+export const GradesList = (props) => {
+	return (
+		<List {...props}>
+			<Datagrid>
+				<TextField source='id'/>
+				<ReferenceField source='student_id' reference={props.student_id} />
+				<TextInput source='type' />
+				<NumberField source='grade' />
+				<NumberField source='max' />
+			</Datagrid>
+		</List>
+	)
 }
 
-export class GradesEdit extends Component {
-	render() {
-		return (
-			<Edit>
-				{/* <TextField 
-					label="ID"
-					source={this.props.id} />
-				<ReferenceField
-					label="Student" 
-					source={this.props.student_id}
-					reference={this.props.student_id}
-				>
-					{this.props.student_id}
-				</ReferenceField>
-				<Textfield type={this.props.type}/>
-				<Numberfield source={this.props.grade}/>
-				<Numberfield source={this.props.max}/> */}
-			</Edit>
-		)
-	}
+export const GradesEdit = (props) => {
+	return (
+		<Edit title='Edit a Grade' {...props}>
+			<SimpleForm>
+				<TextInput source='student_id' />
+				<ReferenceField source='student_id' reference={props.student_id} />
+				<TextInput source='type' />
+				<NumberInput source='grade' />
+				<NumberInput source='max' />
+			</SimpleForm>
+		</Edit>
+	)
 }
 
-export class GradesCreate extends Component {
-	render() {
-		return (
-			<div>
-				
-			</div>
-		)
-	}
+export const GradesCreate = (props) => {
+	return (
+		<Create title='Create a Grade' {...props}>
+			<SimpleForm>
+				<TextInput source='student_id' />
+				<TextInput source='type' />
+				<NumberInput source='grade' />
+				<NumberInput source='max' />
+			</SimpleForm>
+		</Create>
+	)
 }
 
-export default GradesList
+export default { GradesList, GradesEdit, GradesCreate }
