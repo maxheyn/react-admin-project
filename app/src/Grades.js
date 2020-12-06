@@ -35,7 +35,7 @@ export const GradesList = (props) => {
 				/>
 				<ReferenceField 
 					label="Student"
-					source='id'
+					source='student_id'
 					reference='students'>
 					<TextField source="name" />
 				</ReferenceField>
@@ -57,7 +57,7 @@ export const GradesEdit = (props) => {
 				/>
 				<ReferenceField
 					label="Student" 
-					source='id'
+					source='student_id'
 					reference='students'>
 					<TextField source="name" />
 				</ReferenceField>

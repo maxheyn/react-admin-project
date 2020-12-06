@@ -21,19 +21,19 @@ function App() {
 
   return (
     <Admin dataProvider={dataProvider} title="React Admin Dashboard 3750 Project 6">
-      {/* <Resource 
+      { <Resource 
         name="grades" 
         list={ GradesList }
-        edit={ GradesEdit}
-        create={ GradesCreate }
-      /> */}
+        //edit={ GradesEdit}
+        //create={ GradesCreate }
+       }
 
       <Resource 
-        name="students" 
-        list={ StudentsList }
-        show= { StudentsShow }
-        edit={ StudentsEdit }
-        create={ StudentsCreate }
+        name = "students" 
+        list = { StudentsList }
+        show = { StudentsShow }
+        edit = { StudentsEdit }
+        create = { StudentsCreate }
       />
     </Admin>
   )
