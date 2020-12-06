@@ -61,6 +61,7 @@ const RestClient = (apiUrl, httpClient = fetchUtils.fetchJson) => {
                 promises.push(baseClient.getList('grades', getListParams)
                     .then((response) => {
                         grades.push(response.data);
+                    })
                 )
             } else 
                 jsonServerRestClient(`${apiUrl}/${resource}/${params.id}`).then(({ json }) => ({
