@@ -5,7 +5,18 @@ encapsulates the basic rest client ra-data-json-server.
 In this function, it needs to return an object of functions, 
 one for each sort of operation that may be performed by the react-admin UI.
 These functions all take in 2 arguments, resource and params.  
-The functions are called getList, getOne, getMany, getManyReference, update, updateMany, create, delete, and deleteMany. 
+The functions are called 
+
+getList,
+getOne,
+getMany,
+getManyReference,
+update,
+updateMany,
+create,
+delete,
+deleteMany. 
+
 We will only need to override getOne and getMany.  
 The rest of the functions will just call the base client's identical 
 function name and pass in the resource and params we were given.
@@ -50,15 +61,10 @@ const RestClient = (apiUrl, httpClient = fetchUtils.fetchJson) => {
         getOne: (resource, params) => {
             const promises = [];
             let studentObj = {};
-            console.log("pid1")
-            console.log(params.id)
+            const pid = params.id;
             if (resource === 'students') {
-                promises.push(baseClient.getOne(resource, params.id)
+                promises.push(baseClient.getOne(resource, {pid})
                     .then((response) => {
-                        console.log("pid2")
-                        console.log(params.id)
-                        console.log("RES1")
-                        console.log(response.data)
                         studentObj = response.data;
                         getListParams.filter.student_id = studentObj.id;
                         promises.push(baseClient.getList('grades', getListParams)
@@ -68,8 +74,6 @@ const RestClient = (apiUrl, httpClient = fetchUtils.fetchJson) => {
                         )
                     })
                 )
-                console.log("promises")
-                console.log(promises)
                 return Promise.all(promises).then(() => ({data:studentObj}));
             } else
                 return baseClient.getOne(resource, params)

@@ -66,6 +66,7 @@ const GradesTable = (props) => {
     </TableContainer>
   );
 }
+
 GradesTable.defaultProps = { label: "Grades" }
 
 export default GradesTable;
