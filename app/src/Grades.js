@@ -39,12 +39,6 @@ export const GradesList = (props) => {
 					reference='students'>
 					<TextField source="name" />
 				</ReferenceField>
-				<ReferenceField 
-					label="Username"
-					source='id'
-					reference='students'>
-					<TextField source="id" />
-				</ReferenceField>
 				<TextField source='type' />
 				<NumberField source='grade' />
 				<NumberField source='max' />
