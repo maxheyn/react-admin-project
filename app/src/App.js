@@ -2,6 +2,7 @@ import * as React from "react";
 import { Admin, fetchUtils, Resource } from 'react-admin';
 import jsonServerProvider from 'ra-data-json-server';
 import { GradesList, GradesCreate, GradesEdit } from './Grades';
+import RestClient from "./RestClient"
 import {StudentsList, StudentsShow, StudentsEdit, StudentsCreate } from './Students'
 
 
@@ -16,8 +17,7 @@ function App() {
     };
     return fetchUtils.fetchJson(url, options);
   }
-
-  const dataProvider = jsonServerProvider('/project5', httpClient);
+  const dataProvider = RestClient('/project5', httpClient);
 
   return (
     <Admin dataProvider={dataProvider} title="React Admin Dashboard 3750 Project 6">
