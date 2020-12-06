@@ -50,10 +50,12 @@ const RestClient = (apiUrl, httpClient = fetchUtils.fetchJson) => {
         getOne: (resource, params) => {
             const promises = [];
             let studentObj = {};
+            console.log("pid1")
+            console.log(params.id)
             if (resource === 'students') {
                 promises.push(baseClient.getOne(resource, params.id)
                     .then((response) => {
-                        console.log("pid")
+                        console.log("pid2")
                         console.log(params.id)
                         console.log("RES1")
                         console.log(response.data)
@@ -66,6 +68,8 @@ const RestClient = (apiUrl, httpClient = fetchUtils.fetchJson) => {
                         )
                     })
                 )
+                console.log("promises")
+                console.log(promises)
                 return Promise.all(promises).then(() => ({data:studentObj}));
             } else
                 return baseClient.getOne(resource, params)
