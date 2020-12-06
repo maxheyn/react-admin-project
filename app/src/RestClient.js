@@ -67,7 +67,7 @@ const RestClient = (apiUrl, httpClient = fetchUtils.fetchJson) => {
             console.log("{pid}")
             console.log({pid});
             if (resource === 'students') {
-                promises.push(baseClient.getOne(resource, {pid})
+                promises.push(baseClient.getOne(resource, params)
                     .then((response) => {
                         studentObj = response.data;
                         getListParams.filter.student_id = studentObj.id;
