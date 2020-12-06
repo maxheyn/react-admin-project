@@ -84,5 +84,3 @@ export const GradesCreate = (props) => {
 		</Create>
 	)
 }
-let ex = { GradesList, GradesEdit, GradesCreate };
-export default ex;
