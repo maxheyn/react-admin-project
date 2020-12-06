@@ -47,40 +47,40 @@ export const GradesList = (props) => {
 	)
 }
 
-export const GradesEdit = (props) => {
-	return (
-		<Edit title='Edit a Grade' {...props}>
-			<SimpleForm>
-				<TextField 
-					label="Username"
-					source='id' 
-				/>
-				<ReferenceField
-					label="Student" 
-					source='student_id'
-					reference='students'>
-					<TextField source="name" />
-				</ReferenceField>
-				<TextInput source='type' />
-				<NumberInput source='grade' />
-				<NumberInput source='max' />
-			</SimpleForm>
-		</Edit>
-	)
-}
+// export const GradesEdit = (props) => {
+// 	return (
+// 		<Edit title='Edit a Grade' {...props}>
+// 			<SimpleForm>
+// 				<TextField 
+// 					label="Username"
+// 					source='id' 
+// 				/>
+// 				<ReferenceField
+// 					label="Student" 
+// 					source='student_id'
+// 					reference='students'>
+// 					<TextField source="name" />
+// 				</ReferenceField>
+// 				<TextInput source='type' />
+// 				<NumberInput source='grade' />
+// 				<NumberInput source='max' />
+// 			</SimpleForm>
+// 		</Edit>
+// 	)
+// }
 
-export const GradesCreate = (props) => {
-	return (
-		<Create title='Create a Grade' {...props}>
-			<SimpleForm>
-				<TextInput 
-					label="Student's Username"
-					source='id' 
-				/>
-				<TextInput source='type' />
-				<NumberInput source='grade' />
-				<NumberInput source='max' />
-			</SimpleForm>
-		</Create>
-	)
-}
+// export const GradesCreate = (props) => {
+// 	return (
+// 		<Create title='Create a Grade' {...props}>
+// 			<SimpleForm>
+// 				<TextInput 
+// 					label="Student's Username"
+// 					source='id' 
+// 				/>
+// 				<TextInput source='type' />
+// 				<NumberInput source='grade' />
+// 				<NumberInput source='max' />
+// 			</SimpleForm>
+// 		</Create>
+// 	)
+// }
