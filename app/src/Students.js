@@ -53,7 +53,7 @@ export const StudentsShow = (props) => {
                     label="Student"
                     source="name" 
                 />
-                {/* <GradesTable /> */}
+                <GradesTable />
 			</Datagrid>
 		</Show>
 	)

@@ -8,7 +8,7 @@ The table should have rows for the grade ID, type, max and grade.
 import React from 'react'
 import { Datagrid, TextField } from 'react-admin'
 
-export default function(props) {
+const GradesTable = (props) => {
     return (
         <Datagrid {...props}>
             <TextField source='student_id' />
@@ -18,4 +18,6 @@ export default function(props) {
         </Datagrid>
     )
 }
+
+export default GradesTable;
 
