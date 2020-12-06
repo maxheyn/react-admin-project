@@ -30,17 +30,17 @@ import { fetchUtils } from 'react-admin'
 
 import jsonServerRestClient from 'ra-data-json-server'
 
-// const getListParams = {
-//     filter: {},
-//     pagination: {
-//         page: 1,
-//         perPage: 5000,
-//     },
-//     sort: {
-//         field: 'type',
-//         order: 'desc',
-//     }
-// }
+const getListParams = {
+    filter: {},
+    pagination: {
+        page: 1,
+        perPage: 5000,
+    },
+    sort: {
+        field: 'type',
+        order: 'desc',
+    }
+}
 
 const RestClient = (apiUrl, httpClient = fetchUtils.fetchJson) => {
     let baseClient = jsonServerRestClient(apiUrl, httpClient);
@@ -48,7 +48,24 @@ const RestClient = (apiUrl, httpClient = fetchUtils.fetchJson) => {
     return {
         getList: (resource, params) => (baseClient.getList(resource, params)),
         getOne: (resource, params) => {
-            baseClient.getOne(resource, params)
+            const promises = [];
+            const results = [];
+            if (resource === 'students') {
+                promises.push(baseClient.getOne(resource, params.id)
+                    .then((response) => {
+                        results.push(response.data);
+                    })
+                )
+                getListParams.filter.student_id = studentObj.id;
+                promises.push(baseClient.getList('grades', getListParams)
+                    .then((response) => {
+                        results.push(response.data);
+                    })
+                )
+            } else 
+                jsonServerRestClient(`${apiUrl}/${resource}/${params.id}`).then(({ json }) => ({
+                    data: json,
+                }));
         },
         getMany: (resource, params) => {
             const promises = [];
