@@ -86,7 +86,3 @@ export const StudentsCreate = (props) => {
 		</Create>
 	)
 }
-
-let ex = { StudentsList, StudentsShow, StudentsEdit, StudentsCreate }
-
-export default ex;
