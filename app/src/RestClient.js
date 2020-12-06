@@ -53,6 +53,10 @@ const RestClient = (apiUrl, httpClient = fetchUtils.fetchJson) => {
             if (resource === 'students') {
                 promises.push(baseClient.getOne(resource, params.id)
                     .then((response) => {
+                        console.log("pid")
+                        console.log(params.id)
+                        console.log("RES1")
+                        console.log(response.data)
                         studentObj = response.data;
                         getListParams.filter.student_id = studentObj.id;
                         promises.push(baseClient.getList('grades', getListParams)
