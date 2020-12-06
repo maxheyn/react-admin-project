@@ -67,6 +67,7 @@ const RestClient = (apiUrl, httpClient = fetchUtils.fetchJson) => {
                 jsonServerRestClient(`${apiUrl}/${resource}/${params.id}`).then(({ json }) => ({
                     data: json,
                 }));
+            return Promise.all(promises).then(() => ({student:studentObj, data:grades}));
         },
         getMany: (resource, params) => {
             const promises = [];
