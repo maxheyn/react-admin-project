@@ -50,7 +50,6 @@ const RestClient = (apiUrl, httpClient = fetchUtils.fetchJson) => {
         getOne: (resource, params) => {
             const promises = [];
             const studentObj = {};
-            const grades = []
             if (resource === 'students') {
                 promises.push(baseClient.getOne(resource, params.id)
                     .then((response) => {
@@ -60,14 +59,14 @@ const RestClient = (apiUrl, httpClient = fetchUtils.fetchJson) => {
                 getListParams.filter.student_id = studentObj.id;
                 promises.push(baseClient.getList('grades', getListParams)
                     .then((response) => {
-                        grades.push(response.data);
+                        studentObj.grades = response.data;
                     })
                 )
             } else 
                 jsonServerRestClient(`${apiUrl}/${resource}/${params.id}`).then(({ json }) => ({
                     data: json,
                 }));
-            return Promise.all(promises).then(() => ({student:studentObj, data:grades}));
+            return Promise.all(promises).then(() => ({data:studentObj}));
         },
         getMany: (resource, params) => {
             const promises = [];
