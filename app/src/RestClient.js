@@ -26,9 +26,47 @@ Unfortunately, our API doesn't support that type of call, so we have to instead 
 on each of the students that are specified in params.ids, and then return an array of those results to the UI.
 */
 
-export default function() {
-    return {
+import { fetchUtils } from 'react-admin'
 
+import jsonServerRestClient from 'ra-data-json-server'
+
+const getListParams = {
+    filter: {},
+    pagination: {
+        page: 1,
+        perPage: 5000,
+    },
+    sort: {
+        field: 'type',
+        order: 'desc',
     }
 }
 
+const RestClient = (apiUrl, httpClient = fetchUtils.fetchJson) => {
+    let baseClient = jsonServerRestClient(apiUrl, httpClient);
+
+    return {
+        getList: (resource, params) => (baseClient.getList(resource, params)),
+        getOne: (resource, params) => (baseClient.getOne(resource, params)),
+        getMany: (resource, params) => {
+            const promises = [];
+            const results = [];
+            for (let i = 0; i < params.ids.length; i++) {
+                const id = params.ids[i];
+                promises.push(baseClient.getOne(resource, {id})
+                    .then((response) => {
+                        results.push(response.data)
+                    })
+                )
+            }
+            return Promise.all(promises).then(() => ({data:results}));
+        },
+        getManyReference: (resource, params) => (baseClient.getManyReference(resource, params)),
+        update: (resource, params) => (baseClient.update(resource, params)),
+        updateMany: (resource, params) => (baseClient.updateMany(resource, params)),
+        create: (resource, params) => (baseClient.create(resource, params)),
+        delete: (resource, params) => (baseClient.delete(resource, params)),
+        deleteMany: (resource, params) => (baseClient.deleteMany(resource, params))
+    };
+
+}

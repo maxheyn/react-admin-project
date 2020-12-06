@@ -32,9 +32,9 @@ function App() {
       <Resource 
         name = "students" 
         list = { StudentsList }
-        show = { StudentsShow }
-        edit = { StudentsEdit }
-        create = { StudentsCreate }
+        // show = { StudentsShow }
+        // edit = { StudentsEdit }
+        // create = { StudentsCreate }
       />
     </Admin>
   )
