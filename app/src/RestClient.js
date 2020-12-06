@@ -62,12 +62,9 @@ const RestClient = (apiUrl, httpClient = fetchUtils.fetchJson) => {
                         )
                     })
                 )
-
-            } else 
-                jsonServerRestClient(`${apiUrl}/${resource}/${params.id}`).then(({ json }) => ({
-                    data: json,
-                }));
-            return Promise.all(promises).then(() => ({data:studentObj}));
+                return Promise.all(promises).then(() => ({data:studentObj}));
+            } else
+                baseClient.getOne(resource, params)
         },
         getMany: (resource, params) => {
             const promises = [];
