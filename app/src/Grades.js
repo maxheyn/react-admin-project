@@ -28,13 +28,17 @@ import { List, Datagrid, TextField, TextInput, ReferenceField, NumberField, Numb
 export const GradesList = (props) => {
 	return (
 		<List {...props}>
-			<Datagrid>
-				<TextField source='id'/>
+			<Datagrid rowClick="edit">
+				<TextField 
+					label="Username"
+					source='id'
+				/>
 				<ReferenceField 
 					label="Student"
-					source='students'
-					reference='student_id'
-				/>
+					source='id'
+					reference='students'>
+					<TextField source="name" />
+				</ReferenceField>
 				<TextField source='type' />
 				<NumberField source='grade' />
 				<NumberField source='max' />
@@ -47,12 +51,16 @@ export const GradesEdit = (props) => {
 	return (
 		<Edit title='Edit a Grade' {...props}>
 			<SimpleForm>
-				<TextInput source='student_id' />
-				<ReferenceField 
-					label="Student"
-					source='students'
-					reference='student_id' 
+				<TextField 
+					label="Username"
+					source='id' 
 				/>
+				<ReferenceField
+					label="Student" 
+					source='id'
+					reference='students'>
+					<TextField source="name" />
+				</ReferenceField>
 				<TextInput source='type' />
 				<NumberInput source='grade' />
 				<NumberInput source='max' />
@@ -65,7 +73,10 @@ export const GradesCreate = (props) => {
 	return (
 		<Create title='Create a Grade' {...props}>
 			<SimpleForm>
-				<TextInput source='student_id' />
+				<TextInput 
+					label="Student's Username"
+					source='id' 
+				/>
 				<TextInput source='type' />
 				<NumberInput source='grade' />
 				<NumberInput source='max' />
@@ -73,5 +84,5 @@ export const GradesCreate = (props) => {
 		</Create>
 	)
 }
-
-export default { GradesList, GradesEdit, GradesCreate }
+let ex = { GradesList, GradesEdit, GradesCreate };
+export default ex;

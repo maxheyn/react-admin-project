@@ -1,46 +1,57 @@
 {
   "students": [
     {
-        "id": "cbaker",
-        "name": "Greg baker",
-        "_ref": "/students/cbaker"
+      "id": "cbaker",
+      "name": "Greggory Bakier",
+      "_ref": "/students/cbaker"
     },
     {
-        "id": "craigb",
-        "name": "Craig Baker",
-        "_ref": "/students/craigb"
+      "id": "craigb",
+      "name": "Craig Baker",
+      "_ref": "/students/craigb"
+    },
+    {
+      "id": "bruh",
+      "name": "brotherman bill"
     }
   ],
   "grades": [
     {
-        "student_id": "cbaker",
-        "type": "quiz",
-        "grade": "10",
-        "max": "10"
+      "id": "cbaker",
+      "type": "quiz",
+      "grade": 8,
+      "max": 105,
+      "student_id": "fanky"
     },
     {
-        "student_id": "cbaker",
-        "type": "quiz",
-        "grade": "1",
-        "max": "10"
+      "id": "cbaker",
+      "type": "quiz",
+      "grade": "1",
+      "max": "10"
     },
     {
-        "student_id": "cbaker",
-        "type": "quiz",
-        "grade": "12",
-        "max": "10"
+      "id": "cbaker",
+      "type": "quiz",
+      "grade": "12",
+      "max": "10"
     },
     {
-        "student_id": "cbaker",
-        "type": "test",
-        "grade": "122",
-        "max": "100"
+      "id": "cbaker",
+      "type": "test",
+      "grade": "122",
+      "max": "100"
     },
     {
-        "student_id": "craigb",
-        "type": "test",
-        "grade": "122",
-        "max": "100"
+      "id": "craigb",
+      "type": "test",
+      "grade": "122",
+      "max": "100"
+    },
+    {
+      "id": "bruh",
+      "type": "test",
+      "grade": 55,
+      "max": 57
     }
   ]
 }
