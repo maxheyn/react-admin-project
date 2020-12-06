@@ -24,17 +24,17 @@ function App() {
       { <Resource 
         name="grades" 
         list={ GradesList }
-        //edit={ GradesEdit}
-        //create={ GradesCreate }
+        edit={ GradesEdit}
+        create={ GradesCreate }
         />
        }
 
       <Resource 
         name = "students" 
         list = { StudentsList }
-        // show = { StudentsShow }
-        // edit = { StudentsEdit }
-        // create = { StudentsCreate }
+        show = { StudentsShow }
+        edit = { StudentsEdit }
+        create = { StudentsCreate }
       />
     </Admin>
   )
