@@ -30,7 +30,7 @@ export const GradesList = (props) => {
 		<List {...props}>
 			<Datagrid rowClick="edit">
 				<TextField 
-					label="Username"
+					label="Grade ID"
 					source='id'
 				/>
 				<ReferenceField 
@@ -38,6 +38,12 @@ export const GradesList = (props) => {
 					source='student_id'
 					reference='students'>
 					<TextField source="name" />
+				</ReferenceField>
+				<ReferenceField 
+					label="Username"
+					source='id'
+					reference='students'>
+					<TextField source="id" />
 				</ReferenceField>
 				<TextField source='type' />
 				<NumberField source='grade' />
