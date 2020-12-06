@@ -24,7 +24,7 @@ function App() {
       { <Resource 
         name="grades" 
         list={ GradesList }
-        edit={ GradesEdit}
+        edit={ GradesEdit }
         create={ GradesCreate }
         />
        }
