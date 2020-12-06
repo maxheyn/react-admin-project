@@ -48,8 +48,9 @@ const RestClient = (apiUrl, httpClient = fetchUtils.fetchJson) => {
     return {
         getList: (resource, params) => (baseClient.getList(resource, params)),
         getOne: (resource, params) => {
-            console.log("RESOURCE1111")
-            console.log(resource)
+            console.log("PARAMSZ")
+            console.log(params)
+            console.log(params.id)
             const promises = [];
             const studentObj = {};
             if (resource === 'students') {
