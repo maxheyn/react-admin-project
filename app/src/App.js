@@ -26,6 +26,7 @@ function App() {
         list={ GradesList }
         //edit={ GradesEdit}
         //create={ GradesCreate }
+        />
        }
 
       <Resource 
