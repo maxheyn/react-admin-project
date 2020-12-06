@@ -47,7 +47,9 @@ const RestClient = (apiUrl, httpClient = fetchUtils.fetchJson) => {
 
     return {
         getList: (resource, params) => (baseClient.getList(resource, params)),
-        getOne: (resource, params) => (baseClient.getOne(resource, params)),
+        getOne: (resource, params) => {
+            baseClient.getOne(resource, params)
+        },
         getMany: (resource, params) => {
             const promises = [];
             const results = [];

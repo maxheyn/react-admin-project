@@ -21,8 +21,8 @@ A TextInput for the name
 */
 
 import React from 'react'
-import { List, Datagrid, TextField, TextInput, Edit, Create, SimpleForm, Show } from 'react-admin';
-import * as GradesTable from './GradesTable';
+import { List, Datagrid, TextField, TextInput, Edit, Create, SimpleForm, Show, SimpleShowLayout } from 'react-admin';
+import GradesTable from './GradesTable';
 
 export const StudentsList = (props) => {
 	return (
@@ -44,7 +44,7 @@ export const StudentsList = (props) => {
 export const StudentsShow = (props) => {
 	return (
 		<Show {...props}>
-			<Datagrid>
+			<SimpleShowLayout>
                 <TextField 
                     label="Username"
                     source='id'
@@ -53,8 +53,8 @@ export const StudentsShow = (props) => {
                     label="Student"
                     source="name" 
                 />
-                <GradesTable />
-			</Datagrid>
+                <GradesTable source="grades"/>
+			</SimpleShowLayout>
 		</Show>
 	)
 }
