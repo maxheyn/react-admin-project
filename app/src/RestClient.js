@@ -30,17 +30,17 @@ import { fetchUtils } from 'react-admin'
 
 import jsonServerRestClient from 'ra-data-json-server'
 
-const getListParams = {
-    filter: {},
-    pagination: {
-        page: 1,
-        perPage: 5000,
-    },
-    sort: {
-        field: 'type',
-        order: 'desc',
-    }
-}
+// const getListParams = {
+//     filter: {},
+//     pagination: {
+//         page: 1,
+//         perPage: 5000,
+//     },
+//     sort: {
+//         field: 'type',
+//         order: 'desc',
+//     }
+// }
 
 const RestClient = (apiUrl, httpClient = fetchUtils.fetchJson) => {
     let baseClient = jsonServerRestClient(apiUrl, httpClient);
@@ -68,5 +68,6 @@ const RestClient = (apiUrl, httpClient = fetchUtils.fetchJson) => {
         delete: (resource, params) => (baseClient.delete(resource, params)),
         deleteMany: (resource, params) => (baseClient.deleteMany(resource, params))
     };
-
 }
+
+export default RestClient;
