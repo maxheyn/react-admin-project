@@ -75,7 +75,7 @@ export const GradesCreate = (props) => {
 			<SimpleForm>
 				<TextInput 
 					label="Student's Username"
-					source='id' 
+					source='student_id' 
 				/>
 				<TextInput source='type' />
 				<NumberInput source='grade' />
